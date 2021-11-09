@@ -1,0 +1,5 @@
+tasks:
+  - name: Set up services
+    init: docker-compose up
+  - name: Working Terminal
+    command: echo "Welcome!"
