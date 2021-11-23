@@ -21,4 +21,5 @@ Available on port `3306`.  An instance of Adminer has been provided on port `808
 - Username: uberflip
 - Password: pass123
 - Database: university
+
 Note: The MySQL instance may take some time to start up, check the Docker output to make sure it is ready otherwise you will get connection errors.
