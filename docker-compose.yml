@@ -32,11 +32,11 @@ services:
   dbadmin:
     depends_on: 
       - database
-    image: phpmyadmin:5
+    image: phpmyadmin:5-fpm-alpine
     environment:
-      - MYSQL_ROOT_PASSWORD=password
+      - PMA_ARBITRARY=1
     ports:
-      - 8033:8080
+      - 8080:80
     networks:
       - local
 
