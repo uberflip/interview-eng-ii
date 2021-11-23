@@ -5,8 +5,17 @@ tasks:
   - name: Docker
     init: docker-compose build
     command: docker-compose up
-  - name: Terminal
 
 ports:
+  - port: 5551
+    onOpen: ignore
+  - port: 5552
+    onOpen: ignore
+  - port: 5671
+    onOpen: ignore
+  - port: 5672
+    onOpen: ignore
+  - port: 15672
+    onOpen: ignore
   - port: 8080
     onOpen: open-preview

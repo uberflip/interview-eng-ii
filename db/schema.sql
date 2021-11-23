@@ -1,12 +1,6 @@
-CREATE DATABASE IF NOT EXISTS university;
-
 ALTER DATABASE university
   DEFAULT CHARACTER SET utf8
   DEFAULT COLLATE utf8_general_ci;
-
-CREATE USER 'uberflip'@'%' IDENTIFIED BY 'pass123';
-GRANT ALL PRIVILEGES ON university.* TO 'uberflip'@'%';
-FLUSH PRIVILEGES;
 
 USE university;
 
