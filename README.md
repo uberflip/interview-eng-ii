@@ -17,6 +17,8 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 | password  | guest     |
 
 ### MySQL 8 (Database)
-Available on port 3306.  An instance of Adminer has been provided on port 8080 as well.
+Available on port `3306`.  An instance of Adminer has been provided on port `8080` as well.  These options have been preset for you in the CLI config.
 - Username: uberflip
 - Password: pass123
+- Database: university
+Note: The MySQL instance may take some time to start up, check the Docker output to make sure it is ready otherwise you will get connection errors.
