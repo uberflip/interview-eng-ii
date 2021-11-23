@@ -8,5 +8,5 @@ tasks:
   - name: Terminal
 
 ports:
-  - port: 3306
-    onOpen: ignore
+  - port: 8033
+    onOpen: open-preview

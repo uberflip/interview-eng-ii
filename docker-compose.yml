@@ -9,7 +9,7 @@ services:
       - 5551:5551
       - 5552:5552
     networks:
-      local
+      - local
 
   database:
     image: mysql:8
@@ -27,7 +27,7 @@ services:
       timeout: 20s
       retries: 10
     networks:
-      local
+      - local
 
   dbadmin:
     image: phpmyadmin:5
@@ -37,7 +37,7 @@ services:
     ports:
       - 8033:8080
     networks:
-      local
+      - local
 
 networks:
   local:
