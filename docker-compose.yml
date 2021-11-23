@@ -19,7 +19,7 @@ services:
       - MYSQL_DATABASE=university
       - MYSQL_INITDB_SKIP_TZINFO=1
     volumes:
-      - ./workspace/db/schema.sql:/docket-entryoint-initdb.d/1.schema.sql
+      - ./workspace/db/schema.sql:/docker-entryoint-initdb.d/1.schema.sql
     ports:
       - 4306:3306
     healthcheck:
@@ -30,10 +30,11 @@ services:
       - local
 
   dbadmin:
+    depends_on: 
+      - database
     image: phpmyadmin:5
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - PMA_PORT=4306
     ports:
       - 8033:8080
     networks:
