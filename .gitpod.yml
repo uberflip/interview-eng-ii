@@ -2,9 +2,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
+  - name: Terminal
   - name: Docker
-    init: docker-compose build
+    init: docker-compose up --no-start --quiet-pull --build
     command: docker-compose up
+    openMode: split-right
 
 ports:
   - port: 3306
@@ -22,4 +24,4 @@ ports:
   - port: 15672
     onOpen: ignore
   - port: 8080
-    onOpen: open-preview
+    onOpen: open-browser
