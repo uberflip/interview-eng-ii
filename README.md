@@ -17,4 +17,6 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 | password  | guest     |
 
 ### MySQL 8 (Database)
-Available on port 3306.  Root password is "password" and the basic schema has been created.
+Available on port 4306.  An instance of PHPMyAdmin has been provided on port 8033 as well.
+- Username: uberflip
+- Password: pass123
