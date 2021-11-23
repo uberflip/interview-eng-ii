@@ -10,8 +10,11 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 
 | Parameter | Value     |
 | ----------| --------- |
-| host      | loclahost |
+| host      | localhost |
 | port      | 5672      |
 | vhost     | /         |
 | username  | guest     |
 | password  | guest     |
+
+### MySQL 8 (Database)
+Available on port 3306.  Root password is "password" and the basic schema has been created.

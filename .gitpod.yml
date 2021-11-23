@@ -1,5 +1,9 @@
 tasks:
-  - name: Set up services
-    init: docker-compose up
-  - name: Working Terminal
-    command: echo "Welcome!"
+  - name: Docker
+    init: docker-compose build
+    command: docker-compose up
+  - name: Terminal
+
+ports:
+  - port: 3306
+    onOpen: ignore

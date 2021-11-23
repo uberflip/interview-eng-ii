@@ -8,3 +8,17 @@ services:
       - 5672:5672
       - 5551:5551
       - 5552:5552
+  database:
+    image: mysql:8
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=university
+    volumes:
+      - ./db/schema.sql:/docket-entryoint-initdb.d/1.schema.sql
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
