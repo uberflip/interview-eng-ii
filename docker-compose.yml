@@ -10,6 +10,8 @@ services:
       - 5672:5672
       - 5551:5551
       - 5552:5552
+    networks:
+      - local
 
   db:
     image: mysql:8
@@ -23,22 +25,23 @@ services:
     volumes:
       - ./db/schema.sql:/docker-entrypoint-initdb.d/1.schema.sql
     ports:
-      - 4306:3306
+      - 3306:3306
     healthcheck:
       test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
       timeout: 20s
       retries: 10
+    networks:
+      - local
 
-  pma:
+  dba:
     depends_on: 
       - db
-    image: phpmyadmin:5
-    volumes:
-      - ./config/pphpmyadmin.php:/etc/phpmyadmin/config.user.inc.php
-    environment:
-      - PMA_HOST=db
-      - PMA_PORT=3306
-      - PMA_USER=uberflip
-      - PMA_PASSWORD=pass123
+    image: adminer:4
     ports:
-      - 8080:80
+      - 8080:8080
+    networks:
+      - local
+
+networks:
+  local:
+    driver: bridge

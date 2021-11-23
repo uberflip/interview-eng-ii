@@ -11,8 +11,6 @@ tasks:
 ports:
   - port: 3306
     onOpen: ignore
-  - port: 4306
-    onOpen: ignore
   - port: 5551
     onOpen: ignore
   - port: 5552
@@ -24,4 +22,4 @@ ports:
   - port: 15672
     onOpen: ignore
   - port: 8080
-    onOpen: open-browser
+    onOpen: open-preview

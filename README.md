@@ -17,6 +17,6 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 | password  | guest     |
 
 ### MySQL 8 (Database)
-Available on port 4306.  An instance of PHPMyAdmin has been provided on port 8033 as well.
+Available on port 3306.  An instance of Adminer has been provided on port 8080 as well.
 - Username: uberflip
 - Password: pass123
