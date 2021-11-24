@@ -1,16 +1,23 @@
+# Use our Dockerfile as the base image
 image:
   file: .gitpod.Dockerfile
 
+# Open terminals
 tasks:
+  # Bash terminal for user to use
   - name: Terminal
+  # Docker terminal to run our Docker containers and let the user see the output
   - name: Docker
     init: docker-compose up --no-start --build
     command: docker-compose up
     openMode: split-right
 
+# Control the exposed ports
 ports:
+  # MySQL
   - port: 3306
     onOpen: ignore
+  # RabbitMQ
   - port: 5551
     onOpen: ignore
   - port: 5552
@@ -21,7 +28,9 @@ ports:
     onOpen: ignore
   - port: 15672
     onOpen: ignore
+  # NGINX
   - port: 8080
     onOpen: open-preview
+  # Adminer
   - port: 8033
-    onOpen: open-browser
+    onOpen: prompt
