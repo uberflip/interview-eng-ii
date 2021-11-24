@@ -23,5 +23,5 @@ ports:
     onOpen: ignore
   - port: 8080
     onOpen: open-preview
-  - post: 8033
+  - port: 8033
     onOpen: open-preview
