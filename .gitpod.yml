@@ -24,4 +24,4 @@ ports:
   - port: 8080
     onOpen: open-preview
   - port: 8033
-    onOpen: open-preview
+    onOpen: open-browser
