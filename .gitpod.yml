@@ -33,4 +33,4 @@ ports:
     onOpen: open-preview
   # Adminer
   - port: 8033
-    onOpen: prompt
+    onOpen: notify
