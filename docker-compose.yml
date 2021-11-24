@@ -54,7 +54,7 @@ services:
     volumes:
       - ./config/nginx.conf:/etc/nginx/templates/default.conf.template
       - ./web:/usr/share/nginx/html
-    environmment:
+    environment:
       - NGINX_HOST=${GITPOD_WORKSPACE_URL}
       - NGINX_PORT=80
     ports:
