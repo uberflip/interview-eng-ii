@@ -3,6 +3,7 @@
 ## Technology Used
 
 - [Gitpod](https://gitpod.io)
+- [Docker](https://docker.com)
 - [NGINX](https://nginx.org)
 - [MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
 - [RabbitMQ](https://www.rabbitmq.com/)
