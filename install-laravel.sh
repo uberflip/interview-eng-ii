@@ -3,24 +3,6 @@
 # This script will install the Laravel Sail container and
 # configure it for Gitpod.
 
-# First, install the latest composer
-EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"
-php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
-
-if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]
-then
-    >&2 echo 'ERROR: Invalid installer checksum'
-    rm composer-setup.php
-    exit 1
-fi
-
-php composer-setup.php --quiet
-RESULT=$?
-rm composer-setup.php
-# Overwrite the old version provided by Gitpod
-sudo mv composer.phar /usr/bin/composer
-
 # Create the app
 docker info > /dev/null 2>&1
 
@@ -43,6 +25,8 @@ sed -i 's/APP_URL=.*/APP_URL="${GITPOD_WORKSPACE_URL}"/' .env.example
 sed -i '/^APP_URL/a APP_PORT=9080' .env.example
 sed -i 's/DB_HOST=.*/DB_HOST=0.0.0.0/' .env.example
 
+# Add newest composer to the Gitpod workspace
+echo "COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer" >> .gitpod.Dockerfile
 # Set up bash alias for Sail
 echo "RUN echo \"alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'\" >> ~/.bashrc" >> .gitpod.Dockerfile
 # Create the default .env from the example
