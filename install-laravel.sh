@@ -40,6 +40,6 @@ sed -i '/^ports:/a\  - port: 7700\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 9080\n    onOpen: open-preview' .gitpod.yml
 
 # Add a terminal to run Sail
-sed -i '/# Additional Terminals/a\  - name: Sail\n    init: cd university && @php -r "file_exists('.env') || copy('.env.example', '.env');" && composer update && composer install && sail up --no-start --build\n    command: sail up\n    openMode: tab-after' .gitpod.yml
+sed -i '/# Additional Terminals/a\  - name: Sail\n    init: cd university && php -r "file_exists(\'.env\') || copy(\'.env.example\', \'.env\');" && composer update && composer install && sail up --no-start --build\n    command: sail up\n    openMode: tab-after' .gitpod.yml
 
 echo -e "Laravel installed successfully.  Please continue with the challenge instructions."
