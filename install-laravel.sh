@@ -30,6 +30,8 @@ sed -i 's/APP_URL=.*/APP_URL="${GITPOD_WORKSPACE_URL}"/' .env
 sed -i '/^APP_URL/a APP_PORT=9080' .env
 sed -i 's/DB_HOST=.*/DB_HOST=0.0.0.0/' .env
 
+cd ..
+
 # Add the port config to .gitpod.yml
 sed -i '/^ports:/a\  - port: 6379\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 1025\n    onOpen: ignore' .gitpod.yml
