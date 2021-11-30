@@ -27,8 +27,6 @@ sed -i 's/DB_HOST=.*/DB_HOST=0.0.0.0/' .env.example
 
 cd ..
 
-# Add newest composer to the Gitpod workspace
-echo "COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer" >> .gitpod.Dockerfile
 # Set up bash alias for Sail
 echo "RUN echo \"alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'\" >> ~/.bashrc" >> .gitpod.Dockerfile
 
@@ -37,9 +35,16 @@ sed -i '/^ports:/a\  - port: 6379\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 1025\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 8025\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 7700\n    onOpen: ignore' .gitpod.yml
-sed -i '/^ports:/a\  - port: 9080\n    onOpen: open-preview' .gitpod.yml
+# Remove the default web browser preview and add one for Laravel
+sed -i '/port: 8080/a\
+    onOpen: ignore\
+  - port: 9080' .gitpod.yml
 
 # Add a terminal to run Sail
-sed -i '/# Additional Terminals/a\  - name: Sail\n    init: cd university && php -r "file_exists(\'.env\') || copy(\'.env.example\', \'.env\');" && composer update && composer install && sail up --no-start --build\n    command: sail up\n    openMode: tab-after' .gitpod.yml
+sed -i '/# Additional Terminals/a\
+  - name: Sail\
+    init: cd university && php -r \d34file_exists(\d39.env\d39) || copy(\d39.env.example\d39, \d39.env\d39);\d34 && composer update && composer install && sail up --no-start --build\
+    command: sail up\
+    openMode: tab-after' .gitpod.yml
 
 echo -e "Laravel installed successfully.  Please continue with the challenge instructions."

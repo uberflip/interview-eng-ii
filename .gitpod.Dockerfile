@@ -10,3 +10,6 @@ RUN echo "host=0.0.0.0" >> /etc/mysql/conf.d/mysql.cnf
 RUN echo "user=uberflip" >> /etc/mysql/conf.d/mysql.cnf
 RUN echo "password=pass123" >> /etc/mysql/conf.d/mysql.cnf
 RUN echo "database=university" >> /etc/mysql/conf.d/mysql.cnf
+
+# Install the newest version of Composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
