@@ -43,8 +43,8 @@ sed -i '/port: 8080/a\
 # Add a terminal to run Sail
 sed -i '/# Additional Terminals/a\
   - name: Laravel Sail\
+    before: cd university\
     init: |\
-      cd university\
       php -r \d34file_exists(\d39.env\d39) || copy(\d39.env.example\d39, \d39.env\d39);\d34\
       composer update\
       composer install\
