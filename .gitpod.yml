@@ -11,6 +11,7 @@ tasks:
     init: docker-compose up --no-start --build
     command: docker-compose up
     openMode: split-right
+  # Additional Terminals
 
 # Control the exposed ports
 ports:
