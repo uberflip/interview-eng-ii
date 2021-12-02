@@ -67,3 +67,10 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 | vhost     | /         |
 | username  | guest     |
 | password  | guest     |
+
+### PHP CodeSniffer (Linter)
+
+1. Run `./vendor/bin/phpcs /path/of/file` to evaluate the code
+2. Run `./vendor/bin/phpcbf /path/of/file` to fix code using default coding standard
+
+Note: Default coding standard is set to PSR2

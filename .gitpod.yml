@@ -6,6 +6,9 @@ image:
 tasks:
   # Bash terminal for user to use
   - name: Terminal
+  # Install code evaluator
+    init: composer require "squizlabs/php_codesniffer=*"
+    command: ./vendor/bin/phpcs --config-set default_standard PSR2
   # Docker terminal to run our Docker containers and let the user see the output
   - name: Docker
     init: docker-compose up --no-start --build
