@@ -10,7 +10,11 @@
 
 ## Your Tasks
 
-Test description here.
+Consume the University Domains and Names API that is found [here](https://github.com/Hipo/university-domains-list-api).  Use the public API endpoint found in the README.
+
+Using an Object Oriented approach, return and parse the list of all universities in Canada and the US.  Store the information in a MySQL database using best practice for table normalization. Please include the schema/migrations.
+
+Present the list of universities and highlight the ones that have more than one domain.  Make the presentation of this data to be clean and have some styling.
 
 ## Development Environment
 
@@ -28,7 +32,7 @@ You may choose which framework you wish to use to accomplish your tasks.  Please
 2. Start a Gitpod workspace from your copy of the repo (prepend [https://gitpod.io#](https://gitpod.io#) to the Github URL)
 3. Continue with your preferred framework
 
-### Laravel
+### [Laravel](https://laravel.com)
 
 1. Run `bash install-laravel.sh` from the Terminal window.  This will install Laravel Sail and make the needed Gitpod config changes
 2. Commit all new & changed files with the commit message "Initial Commit" and Sync Changes
