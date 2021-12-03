@@ -17,20 +17,27 @@ docker run --rm -v "$(pwd)":/opt -w /opt --platform=linux/amd64 laravelsail/php8
 
 cd university
 
+# Make sure the user owns all of the new files
+sudo chown -R $USER: .
+
 # Install Tailwind CSS
 npm install
 npm install -D tailwindcss
 npx tailwindcss init
-
 echo "@tailwind base;" >> resources/css/app.css
 echo "@tailwind components;" >> resources/css/app.css
 echo "@tailwind utilities;" >> resources/css/app.css
-
 sed -i 's/^        \/\//        require(\d39tailwindcss\d39),/' webpack.mix.js
 
-echo ""
-# Make sure the user owns all of the new files
-sudo chown -R $USER: .
+# Copy welcome HTML to default Laravel view, customize
+cp ../web/index.html resources/views/welcome.blade.php
+cp ../web/assets/* public/
+sed -i 's/<link href="assets\//<link href="/' resources/views/welcome.blade.php
+sed -i '/<link/a\        <link rel="stylesheet" href="/css/app.css" />' resources/views/welcome.blade.php
+sed -i '/<body/a\        <div class="container mx-auto px-4">' resources/views/welcome.blade.php
+sed -i '/<\d47body/i\        <\d47div>' resources/views/welcome.blade.php
+sed -i 's/<img src="assets\//    <img class="w-32 h-32" src="/' resources/views/welcome.blade.php
+sed -i 's/<h1>Welcome to the Uberflip Technical Challenge/    <h1>{{ $title ?? \d39Welcome to the Uberflip Technical Challenge\d39 }}/' resources/views/welcome.blade.php
 
 # Modify default .env.example to work in Gitpod
 sed -i 's/APP_NAME=.*/APP_NAME=University/' .env.example
@@ -68,6 +75,7 @@ sed -i '/# Additional Terminals/a\
       composer update\
       composer install\
       php artisan key:generate\
+      npm run dev\
       sail up --no-start --build\
     command: sail up\
     openMode: tab-after' .gitpod.yml
