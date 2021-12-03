@@ -30,7 +30,7 @@ sed -i 's/DB_PASSWORD=.*/DB_PASSWORD=pass123/' .env.example
 
 # Modify the Sail docker-compose to work with our external network
 sed -i 's/- sail/- sail\n            - local/g' docker-compose.yml
-sed -i '/^networks:/a\    local:\n        external:true' docker-compose.yml
+sed -i '/^networks:/a\    local:\n        external: true' docker-compose.yml
 
 cd ..
 
