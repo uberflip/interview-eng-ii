@@ -12,12 +12,24 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Create Laravel project
 docker run --rm -v "$(pwd)":/opt -w /opt --platform=linux/amd64 laravelsail/php80-composer:latest bash -c "laravel new university && cd university && php ./artisan sail:install --with=redis,meilisearch,mailhog,selenium "
 
 cd university
 
-echo ""
+# Install Tailwind CSS
+npm install
+npm install -D tailwindcss
+npx tailwindcss init
 
+echo "@tailwind base;" >> resources/css/app.css
+echo "@tailwind components;" >> resources/css/app.css
+echo "@tailwind utilities;" >> resources/css/app.css
+
+sed -i 's/^        \/\//        require(\d39tailwindcss\d39),/' webpack.mix.js
+
+echo ""
+# Make sure the user owns all of the new files
 sudo chown -R $USER: .
 
 # Modify default .env.example to work in Gitpod
