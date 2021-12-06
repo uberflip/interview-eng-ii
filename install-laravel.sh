@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Create Laravel project
-docker run --rm -v "$(pwd)":/opt -w /opt --platform=linux/amd64 laravelsail/php80-composer:latest bash -c "laravel new university && cd university && php ./artisan sail:install --with=redis,meilisearch,mailhog,selenium "
+docker run --rm -v "$(pwd)":/opt -w /opt --platform=linux/amd64 laravelsail/php80-composer:latest bash -c "laravel new university && cd university && php ./artisan sail:install --with=selenium "
 
 cd university
 
@@ -34,9 +34,9 @@ cp ../web/index.html resources/views/welcome.blade.php
 cp ../web/assets/* public/
 sed -i 's/<link href="assets\//<link href="/' resources/views/welcome.blade.php
 sed -i '/<link/a\        <link rel="stylesheet" href="/css/app.css" />' resources/views/welcome.blade.php
-sed -i '/<body/a\        <div class="container mx-auto px-4">' resources/views/welcome.blade.php
+sed -i '/<body/a\        <div class="container mx-auto p-4">' resources/views/welcome.blade.php
 sed -i '/<\d47body/i\        <\d47div>' resources/views/welcome.blade.php
-sed -i 's/<img src="assets\//    <img class="w-32 h-32" src="/' resources/views/welcome.blade.php
+sed -i 's/<img src="assets\//    <img class="w-16 h-16 mr-4 float-left" src="/' resources/views/welcome.blade.php
 sed -i 's/<h1>Welcome to the Uberflip Technical Challenge/    <h1>{{ $title ?? \d39Welcome to the Uberflip Technical Challenge\d39 }}/' resources/views/welcome.blade.php
 
 # Modify default .env.example to work in Gitpod
@@ -72,9 +72,10 @@ sed -i '/# Additional Terminals/a\
     before: cd university\
     init: |\
       php -r \d34file_exists(\d39.env\d39) || copy(\d39.env.example\d39, \d39.env\d39);\d34\
+      php artisan key:generate\
       composer update\
       composer install\
-      php artisan key:generate\
+      npm install\
       npm run dev\
       sail up --no-start --build\
     command: sail up\
