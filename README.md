@@ -10,11 +10,13 @@
 
 ## Your Tasks
 
-Consume the `University Domains and Names API` that is found [here](https://github.com/Hipo/university-domains-list-api).  Use the public API endpoint found in the README.
+1. Consume the `University Domains and Names API` public API that is found [here](https://github.com/Hipo/university-domains-list-api).  Using an Object Oriented approach, return and parse the list of all universities in Canada and the US.  Store the information in a MySQL database using best practice for table normalization. Please include the schema/migrations.  The API should only be consumed once, then the locally stored data should be used to populate the application.
 
-Using an Object Oriented approach, return and parse the list of all universities in Canada and the US.  Store the information in a MySQL database using best practice for table normalization. Please include the schema/migrations.
+2. Present the list of universities and highlight the ones that have more than one domain.  Make the presentation of this data clean and have some styling.
 
-Present the list of universities and highlight the ones that have more than one domain.  Make the presentation of this data clean and have some styling.
+### Sample Mockup
+
+![Mockup](mockup.png)
 
 ## Development Environment
 
@@ -23,6 +25,8 @@ You will need a personal Github account to accomplish this challenge.  Once you 
 The Gitpod environment provides an instance of VS Code in the browser for you to accomplish your tasks.  You may install any additional tools you need using the [Gitpod](https://www.gitpod.io/docs/getting-started) or [Docker](https://docs.docker.com/compose/) config files.  Make sure that any tools your solution requires are installed and configured in code, otherwise the interviewer will not be able to replicate your solution.
 
 If you close a preview window, you can re-open it by clicking on the Remote Explorer tab on the left-hand sidebar.  Find the port you want to preview (e.g. `8080`) and click the Open Preview or Open Browser icon.
+
+If you are having issues with the font in the terminal windows being hard to read, try adding `"terminal.integrated.gpuAcceleration": "canvas"` to the settings.json file in VS Code.
 
 ## Setting up a Framework
 
@@ -36,9 +40,9 @@ You may choose which framework you wish to use to accomplish your tasks.  Please
 
 1. Run `bash install-laravel.sh` from the Terminal window.  This will install Laravel Sail and make the needed Gitpod config changes
 2. Commit all new & changed files with the commit message "Initial Commit" and Sync Changes
-3. Close the existing workspace and open a new one, this will grab the changes you just committed
+3. Close the existing workspace and open a new one with your committed changes
 
-You will now have an additional Terminal tab that will run Laravel Sail.  When it is ready, a preview window will open.  [Tailwind CSS](https://laravel.com/docs/8.x/mix#tailwindcss) is also included for you.
+You will now have an additional Terminal tab that will start Laravel Sail.  When it is ready, a preview window will open.  [Tailwind CSS](https://laravel.com/docs/8.x/mix#tailwindcss) is also included for you.
 
 You are now ready to start your tasks.
 
