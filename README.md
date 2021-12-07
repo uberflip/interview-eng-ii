@@ -14,6 +14,8 @@
 
 2. Present the list of universities and highlight the ones that have more than one domain.  Make the presentation of this data clean and have some styling.
 
+3. Ensure that your code is well formatted, commented, and tested.
+
 ### Sample Mockup
 
 ![Mockup](mockup.png)
@@ -30,11 +32,11 @@ If you are having issues with the font in the terminal windows being hard to rea
 
 ## Setting up a Framework
 
-You may choose which framework you wish to use to accomplish your tasks.  Please follow the instructions below to install the framework of your choice.
+You may choose which framework you wish to use to accomplish your tasks.  We have prepared an install script for one framework, Laravel, but you may choose any framework to accomplish your tasks.  Please follow the instructions below to install the framework of your choice.
 
 1. Clone this repo to your own Github account
 2. Start a Gitpod workspace from your copy of the repo (prepend [https://gitpod.io#](https://gitpod.io#) to the Github URL)
-3. Continue with your preferred framework
+3. Continue with Laravel or install your preferred framework
 
 ### [Laravel](https://laravel.com)
 
