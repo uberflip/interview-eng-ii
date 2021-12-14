@@ -22,17 +22,17 @@ sudo chown -R $USER: .
 
 # Install Tailwind CSS
 npm install
-npm install -D tailwindcss
+npm install -D tailwindcss@3 postcss@8 autoprefixer@10
 npx tailwindcss init
 echo "@tailwind base;" >> resources/css/app.css
 echo "@tailwind components;" >> resources/css/app.css
 echo "@tailwind utilities;" >> resources/css/app.css
 sed -i 's/^        \/\//        require(\d39tailwindcss\d39),/' webpack.mix.js
-sed -i 's/content: []/content: [\
-    "./resources/views/*.blade.php",\
-    "./resources/js/*.js",\
-    "./resources/js/*.ts",\
-  ]' tailwind.config.js
+sed -i 's|content: \[\]|content: \[\
+    ".\/resources\/views\/*.blade.php",\
+    ".\/resources\/js\/*.js",\
+    ".\/resources\/js\/*.ts",\
+  \]|' tailwind.config.js
 
 # Copy welcome HTML to default Laravel view, customize
 cp ../web/index.html resources/views/welcome.blade.php
