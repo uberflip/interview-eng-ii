@@ -1,4 +1,4 @@
-# interview-eng-ii
+# Uberflip Engineer II Technical Challenge
 
 ## Technology Used
 
@@ -41,10 +41,13 @@ You may choose which framework you wish to use to accomplish your tasks.  We hav
 ### [Laravel](https://laravel.com)
 
 1. Run `bash install-laravel.sh` from the Terminal window.  This will install Laravel Sail and make the needed Gitpod config changes
-2. Commit all new & changed files with the commit message "Initial Commit" and Sync Changes
-3. Close the existing workspace and open a new one with your committed changes
+2. Using the VS Code Source Control tab, commit all new & changed files (1k+) with the commit message "Initial Commit" and click Sync Changes
+3. Close the existing workspace
+4. Open a new workspace from your git repo with your committed changes
 
-You will now have an additional Terminal tab that will start Laravel Sail.  When it is ready, a preview window will open.  [Tailwind CSS](https://laravel.com/docs/8.x/mix#tailwindcss) is also included for you.
+You will now have an additional Terminal tab in the bottom-right pane that will start Laravel Sail.  When it is ready, a preview window will open.  [Tailwind CSS](https://laravel.com/docs/8.x/mix#tailwindcss) is also included for you.  The preview page should look like this:
+
+![Preview](preview.png)
 
 You are now ready to start your tasks.
 
@@ -80,7 +83,7 @@ Available on standard ports (eg. `5672` or `5552`) via `localhost`. The manageme
 | username  | guest     |
 | password  | guest     |
 
-### PHP CodeSniffer (Linter)
+### [PHP CodeSniffer (Linter)](https://github.com/squizlabs/PHP_CodeSniffer)
 
 1. Run `composer phpcs /path/of/file` to evaluate the code
 2. Run `composer phpcbf /path/of/file` to fix code using default coding standard
