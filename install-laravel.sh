@@ -58,9 +58,6 @@ sed -i '/^networks:/a\    local:\n        external: true' docker-compose.yml
 
 cd ..
 
-# Set up bash alias for Sail
-echo "RUN echo \"alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'\" >> ~/.bashrc" >> .gitpod.Dockerfile
-
 # Add the port config to .gitpod.yml
 sed -i '/^ports:/a\  - port: 6379\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 1025\n    onOpen: ignore' .gitpod.yml
@@ -86,4 +83,5 @@ sed -i '/# Additional Terminals/a\
     command: sail up\
     openMode: tab-after' .gitpod.yml
 
+echo ""
 echo -e "Laravel installed successfully.  Please continue with the challenge instructions."
