@@ -77,11 +77,11 @@ sed -i '/# Additional Terminals/a\
     before: cd university\
     init: |\
       php -r \d34file_exists(\d39.env\d39) || copy(\d39.env.example\d39, \d39.env\d39);\d34\
-      php artisan key:generate\
       composer update\
       composer install\
       npm install\
       npm run dev\
+      php artisan key:generate\
       sail up --no-start --build\
     command: sail up\
     openMode: tab-after' .gitpod.yml
