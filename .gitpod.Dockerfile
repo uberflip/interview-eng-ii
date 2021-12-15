@@ -13,3 +13,6 @@ RUN echo "database=university" >> /etc/mysql/conf.d/mysql.cnf
 
 # Install the newest version of Composer
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
+# Set up Sail alias, even if they don't choose Laravel, then this image can be reused
+RUN echo "alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'" >> ~/.bashrc

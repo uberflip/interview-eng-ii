@@ -22,12 +22,17 @@ sudo chown -R $USER: .
 
 # Install Tailwind CSS
 npm install
-npm install -D tailwindcss
+npm install -D tailwindcss@3 postcss@8 autoprefixer@10
 npx tailwindcss init
 echo "@tailwind base;" >> resources/css/app.css
 echo "@tailwind components;" >> resources/css/app.css
 echo "@tailwind utilities;" >> resources/css/app.css
 sed -i 's/^        \/\//        require(\d39tailwindcss\d39),/' webpack.mix.js
+sed -i 's|content: \[\]|content: \[\
+    ".\/resources\/views\/*.blade.php",\
+    ".\/resources\/js\/*.js",\
+    ".\/resources\/js\/*.ts",\
+  \]|' tailwind.config.js
 
 # Copy welcome HTML to default Laravel view, customize
 cp ../web/index.html resources/views/welcome.blade.php
@@ -53,9 +58,6 @@ sed -i '/^networks:/a\    local:\n        external: true' docker-compose.yml
 
 cd ..
 
-# Set up bash alias for Sail
-echo "RUN echo \"alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'\" >> ~/.bashrc" >> .gitpod.Dockerfile
-
 # Add the port config to .gitpod.yml
 sed -i '/^ports:/a\  - port: 6379\n    onOpen: ignore' .gitpod.yml
 sed -i '/^ports:/a\  - port: 1025\n    onOpen: ignore' .gitpod.yml
@@ -72,13 +74,14 @@ sed -i '/# Additional Terminals/a\
     before: cd university\
     init: |\
       php -r \d34file_exists(\d39.env\d39) || copy(\d39.env.example\d39, \d39.env\d39);\d34\
-      php artisan key:generate\
       composer update\
       composer install\
       npm install\
       npm run dev\
+      php artisan key:generate\
       sail up --no-start --build\
     command: sail up\
     openMode: tab-after' .gitpod.yml
 
+echo ""
 echo -e "Laravel installed successfully.  Please continue with the challenge instructions."
