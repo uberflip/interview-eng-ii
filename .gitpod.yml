@@ -6,7 +6,7 @@ image:
 tasks:
   # Bash terminal for user to use
   - name: Terminal
-  # Install code evaluator
+    # Install code evaluator
     init: composer install && composer phpcsinit
   # Docker terminal to run our Docker containers and let the user see the output
   - name: Docker
@@ -21,17 +21,6 @@ tasks:
 ports:
   # MySQL
   - port: 3306
-    onOpen: ignore
-  # RabbitMQ
-  - port: 5551
-    onOpen: ignore
-  - port: 5552
-    onOpen: ignore
-  - port: 5671
-    onOpen: ignore
-  - port: 5672
-    onOpen: ignore
-  - port: 15672
     onOpen: ignore
   # NGINX
   - port: 8080

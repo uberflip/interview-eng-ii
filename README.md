@@ -2,11 +2,12 @@
 
 ## Technology Used
 
+- [Git](https://git-scm.com/)
+- [Github](https://github.com)
 - [Gitpod](https://gitpod.io)
 - [Docker](https://docker.com)
 - [NGINX](https://nginx.org)
 - [MySQL](https://dev.mysql.com/doc/refman/8.0/en/)
-- [RabbitMQ](https://www.rabbitmq.com/)
 - [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
 - [Laravel](https://laravel.com) (Optional)
   - [Tailwind CSS](https://laravel.com/docs/8.x/mix#tailwindcss)
@@ -37,7 +38,7 @@ If you are having issues with the font in the terminal windows being hard to rea
 
 You may choose which framework you wish to use to accomplish your tasks.  We have prepared an install script for one framework, Laravel, but you may choose any framework to accomplish your tasks.  Please follow the instructions below to install the framework of your choice.
 
-1. Clone this repo to your own Github account, make your copy private.
+1. Copy this template repo to your own Github account.
 2. Start a Gitpod workspace from your copy of the repo (prepend [https://gitpod.io#](https://gitpod.io#) to the Github URL).  This step may take 5-10 minutes to initialize the image.
 3. Continue with Laravel or install your preferred framework.
 
@@ -71,20 +72,6 @@ Available on port `3306`.  An instance of Adminer has been provided on port `803
 - Database: university
 
 Note: The MySQL instance may take a few minutes to start up, check the Docker output to make sure it is ready otherwise you will get connection errors.
-
-### RabbitMQ (Message Broker)
-
-Available on standard ports (eg. `5672` or `5552`) via `localhost`. The management plugin is also enabled and accessible on port `15672`, and can be opened using the Remote Explorer Activity View. Feel free to use one of the many [client libraries](https://www.rabbitmq.com/devtools.html) to interact with the service.
-
-#### Connection Details
-
-| Parameter | Value     |
-| ----------| --------- |
-| host      | localhost |
-| port      | 5672      |
-| vhost     | /         |
-| username  | guest     |
-| password  | guest     |
 
 ### [PHP CodeSniffer (Linter)](https://github.com/squizlabs/PHP_CodeSniffer)
 
