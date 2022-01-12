@@ -3,20 +3,6 @@ version: "3.9"
 
 # Define our containers
 services:
-  # RabbitMQ
-  mb:
-    image: rabbitmq:management
-    volumes:
-      - ./config/rabbitmq.conf:/etc/rabbitmq/conf.d/1-docker.conf
-    ports:
-      - 15672:15672
-      - 5671:5671
-      - 5672:5672
-      - 5551:5551
-      - 5552:5552
-    networks:
-      - local
-
   # MySQL
   db:
     image: mysql:8
